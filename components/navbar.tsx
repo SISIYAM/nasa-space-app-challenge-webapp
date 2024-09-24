@@ -54,7 +54,7 @@ export const Navbar = () => {
         <NavbarBrand as="li" className="gap-3 max-w-fit">
           <NextLink className="flex justify-start items-center gap-1" href="/">
             <Logo />
-            <p className="font-bold text-inherit">ACME</p>
+            <p className="font-bold text-inherit">Agri Bot</p>
           </NextLink>
         </NavbarBrand>
         <ul className="hidden lg:flex gap-4 justify-start ml-2">
@@ -82,7 +82,7 @@ export const Navbar = () => {
         <NavbarItem className="hidden sm:flex gap-2">
           <Link
             isExternal
-            aria-label="Twitter"
+            aria-label="Facebook"
             href={siteConfig.links.facebook}
           >
             <FacebookIcon className="text-default-500" />
@@ -116,7 +116,7 @@ export const Navbar = () => {
                       ? "danger"
                       : "foreground"
                 }
-                href="#"
+                href={item.href}
                 size="lg"
               >
                 {item.label}

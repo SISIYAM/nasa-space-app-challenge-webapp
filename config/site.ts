@@ -1,63 +1,36 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "Siyam css libarary",
+  name: "Agri Bot",
   description: "Make beautiful websites regardless of your design experience.",
   navItems: [
     {
-      label: "Home",
-      href: "/",
+      label: "Crops",
+      href: "/crops",
     },
     {
-      label: "Docs",
-      href: "/docs",
+      label: "Water Management",
+      href: "/water-management",
     },
     {
-      label: "Pricing",
-      href: "/pricing",
-    },
-    {
-      label: "Blog",
-      href: "/blog",
-    },
-    {
-      label: "About",
-      href: "/about",
+      label: "Soil Health",
+      href: "/soil-health",
     },
   ],
   navMenuItems: [
     {
-      label: "Profile",
-      href: "/profile",
+      label: "Crops",
+      href: "/crops",
     },
     {
-      label: "Dashboard",
-      href: "/dashboard",
+      label: "Water Management",
+      href: "/water-management",
     },
     {
-      label: "Projects",
-      href: "/projects",
+      label: "Soil Health",
+      href: "/soil-health",
     },
-    {
-      label: "Team",
-      href: "/team",
-    },
-    {
-      label: "Calendar",
-      href: "/calendar",
-    },
-    {
-      label: "Settings",
-      href: "/settings",
-    },
-    {
-      label: "Help & Feedback",
-      href: "/help-feedback",
-    },
-    {
-      label: "Logout",
-      href: "/logout",
-    },
+    
   ],
   links: {
     github: "https://github.com/SISIYAM/siyam-custom-cdn.git",
