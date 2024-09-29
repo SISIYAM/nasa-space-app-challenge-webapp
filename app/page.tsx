@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Link } from "@nextui-org/link";
 import { button as buttonStyles } from "@nextui-org/theme";
 import { siteConfig } from "@/config/site";
@@ -18,8 +18,17 @@ import {
 
 interface ChatMessage {
   sender: "bot" | "user";
-  text: string;
+  text?: string;
+  imageUrl?: string;
 }
+
+// define image paths in a variable
+const imagePaths = {
+  image1: "/1.png",
+  image2: "/2.png",
+  image3: "/3.png",
+  image4: "/4.png",
+};
 
 // predefined questions and answers
 const qaMapping: Record<string, string> = {
@@ -31,9 +40,13 @@ const qaMapping: Record<string, string> = {
     "Agri Bot uses Earth observation data from NASA satellites.",
   "Tell me about Siyam":
     "This website was developed by Md Saymum Islam Siyam, who is a full-stack developer and the founder and CEO at SEI Innovations.",
+  "give image 1": "image1",
+  "give image 2": "image2",
+  "give image 3": "image3",
+  "give image 4": "image4",
 };
 
-// Function to find the best matching response based on keywords
+// function to find the best matching response based on keywords
 const findBestResponse = (input: string): string => {
   const lowerInput = input.toLowerCase();
   const matchingKeys = Object.keys(qaMapping).filter((key) =>
@@ -54,7 +67,9 @@ export default function Home() {
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([
     { sender: "bot", text: "Bot: Welcome! How can I assist you today? 🌱" },
   ]);
+
   const textRef = useRef<HTMLTextAreaElement | null>(null); // Typing the ref
+  const bottomRef = useRef<HTMLDivElement | null>(null); // Ref to track the bottom of the chat
 
   // handle textarea's height according to input
   const handleInput = () => {
@@ -83,14 +98,32 @@ export default function Home() {
     // get response based on user input
     const response = findBestResponse(message.trim());
 
-    // respond with the found answer
-    setChatMessages((prevMessages) => [
-      ...prevMessages,
-      { sender: "bot", text: `Bot: ${response}` },
-    ]);
+    if (response.startsWith("image")) {
+      // handle different images based on response
+      const imageUrl = imagePaths[response as keyof typeof imagePaths] || "";
+
+      // add an image message
+      setChatMessages((prevMessages) => [
+        ...prevMessages,
+        { sender: "bot", imageUrl },
+      ]);
+    } else {
+      // respond with the found text answer
+      setChatMessages((prevMessages) => [
+        ...prevMessages,
+        { sender: "bot", text: `Bot: ${response}` },
+      ]);
+    }
 
     setMessage("");
   };
+
+  // scroll to the bottom when chatMessages update
+  useEffect(() => {
+    if (bottomRef.current) {
+      bottomRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [chatMessages]);
 
   return (
     <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
@@ -135,7 +168,7 @@ export default function Home() {
                 alt="Agri Bot logo"
                 height={40}
                 radius="sm"
-                src="https://example.com/your-logo.png" // Replace with your logo URL
+                src="../public/next.svg"
                 width={40}
               />
               <div className="flex flex-col">
@@ -174,9 +207,14 @@ export default function Home() {
                       : "bg-blue-500 text-white self-end"
                   }`}
                 >
-                  <p>{msg.text}</p>
+                  {msg.text && <p>{msg.text}</p>}
+                  {msg.imageUrl && (
+                    <img src={msg.imageUrl} alt="Chat response image" />
+                  )}
                 </div>
               ))}
+              {/* Element to track the bottom of the chat */}
+              <div ref={bottomRef} />
             </div>
           </CardBody>
           <Divider />
