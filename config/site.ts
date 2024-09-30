@@ -48,7 +48,7 @@ export const siteConfig = {
     },
   ],
   links: {
-    github: "https://github.com/SISIYAM/siyam-custom-cdn.git",
+    github: "https://github.com/SISIYAM/nasa-space-app-challenge-webapp.git",
     facebook: "https://www.facebook.com/SaymumIslamSiyam70",
     docs: "/docs",
   },
