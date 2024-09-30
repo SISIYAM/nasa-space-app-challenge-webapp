@@ -5,7 +5,12 @@ import { button as buttonStyles } from "@nextui-org/theme";
 import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
 import { GithubIcon } from "@/components/icons";
-import { FaPhoneAlt, FaVideo, FaPaperPlane } from "react-icons/fa";
+import {
+  FaPhoneAlt,
+  FaVideo,
+  FaPaperPlane,
+  FaMicrophone,
+} from "react-icons/fa";
 import {
   Card,
   CardHeader,
@@ -20,6 +25,7 @@ interface ChatMessage {
   sender: "bot" | "user";
   text?: string;
   imageUrl?: string;
+  audioUrl?: string;
 }
 
 // define image paths in a variable
@@ -44,6 +50,8 @@ const qaMapping: Record<string, string> = {
   "give image 2": "image2",
   "give image 3": "image3",
   "give image 4": "image4",
+  "তোমাকে কে বানিয়েছে?":
+    "আমাকে OpenAI বানিয়েছে। OpenAI একটি গবেষণা প্রতিষ্ঠান, যারা কৃত্রিম বুদ্ধিমত্তা (AI) তৈরি ও উন্নয়নের জন্য কাজ করে। আমি একটি ভাষা মডেল, যার মাধ্যমে আমি বিভিন্ন প্রশ্নের উত্তর দিতে এবং নানা ধরনের কাজ সম্পাদন করতে পারি।",
 };
 
 // function to find the best matching response based on keywords
@@ -67,9 +75,14 @@ export default function Home() {
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([
     { sender: "bot", text: "Bot: Welcome! How can I assist you today? 🌱" },
   ]);
+  const [isRecording, setIsRecording] = useState(false);
+  const [mediaRecorder, setMediaRecorder] = useState<MediaRecorder | null>(
+    null
+  );
+  const [audioChunks, setAudioChunks] = useState<Blob[]>([]);
 
-  const textRef = useRef<HTMLTextAreaElement | null>(null); // Typing the ref
-  const bottomRef = useRef<HTMLDivElement | null>(null); // Ref to track the bottom of the chat
+  const textRef = useRef<HTMLTextAreaElement | null>(null);
+  const bottomRef = useRef<HTMLDivElement | null>(null);
 
   // handle textarea's height according to input
   const handleInput = () => {
@@ -85,30 +98,24 @@ export default function Home() {
     setMessage(e.target.value);
   };
 
-  // handle button click
+  // handle button click to send text message
   const handleClick = () => {
     if (message.trim() === "") return;
 
-    // add user message to chat
     setChatMessages((prevMessages) => [
       ...prevMessages,
       { sender: "user", text: `You: ${message}` },
     ]);
 
-    // get response based on user input
     const response = findBestResponse(message.trim());
 
     if (response.startsWith("image")) {
-      // handle different images based on response
       const imageUrl = imagePaths[response as keyof typeof imagePaths] || "";
-
-      // add an image message
       setChatMessages((prevMessages) => [
         ...prevMessages,
         { sender: "bot", imageUrl },
       ]);
     } else {
-      // respond with the found text answer
       setChatMessages((prevMessages) => [
         ...prevMessages,
         { sender: "bot", text: `Bot: ${response}` },
@@ -116,6 +123,56 @@ export default function Home() {
     }
 
     setMessage("");
+  };
+
+  // handle audio recording start and stop
+  const handleRecordAudio = async () => {
+    if (!isRecording) {
+      try {
+        setAudioChunks([]);
+
+        const stream = await navigator.mediaDevices.getUserMedia({
+          audio: true,
+        });
+        const recorder = new MediaRecorder(stream);
+
+        // collect data as it's available
+        recorder.ondataavailable = (event) => {
+          setAudioChunks((prevChunks) => [...prevChunks, event.data]);
+        };
+
+        // when recording stops, process the recorded data
+        recorder.onstop = () => {
+          const audioBlob = new Blob(audioChunks, { type: "audio/wav" });
+          const audioUrl = URL.createObjectURL(audioBlob);
+
+          // append user audio message to chat
+          setChatMessages((prevMessages) => [
+            ...prevMessages,
+            { sender: "user", audioUrl },
+          ]);
+
+          // bot response after receiving the audio
+          setChatMessages((prevMessages) => [
+            ...prevMessages,
+            { sender: "bot", text: "Bot: Received your audio!" },
+          ]);
+        };
+
+        // start recording and update states
+        recorder.start();
+        setMediaRecorder(recorder);
+        setIsRecording(true);
+      } catch (err) {
+        console.error("Error accessing microphone", err);
+      }
+    } else {
+      // stop the recorder when recording is in progress
+      if (mediaRecorder) {
+        mediaRecorder.stop();
+        setIsRecording(false);
+      }
+    }
   };
 
   // scroll to the bottom when chatMessages update
@@ -211,31 +268,47 @@ export default function Home() {
                   {msg.imageUrl && (
                     <img src={msg.imageUrl} alt="Chat response image" />
                   )}
+                  {msg.audioUrl && (
+                    <audio controls>
+                      <source src={msg.audioUrl} type="audio/wav" />
+                    </audio>
+                  )}
                 </div>
               ))}
-              {/* Element to track the bottom of the chat */}
               <div ref={bottomRef} />
             </div>
           </CardBody>
           <Divider />
-          <CardFooter className="flex gap-2">
-            <textarea
-              className="flex-grow p-2 rounded-lg border border-gray-300 focus:outline-none resize-none max-h-32 overflow-hidden"
-              rows={1}
-              placeholder="Type a message..."
-              ref={textRef}
-              value={message}
-              onChange={handleChange}
-              onInput={handleInput}
-            />
-            <Button
-              isIconOnly
-              color="primary"
-              aria-label="Send message"
-              onClick={handleClick}
-            >
-              <FaPaperPlane />
-            </Button>
+          <CardFooter className="pb-1">
+            <div className="flex gap-2 w-full items-center">
+              <textarea
+                ref={textRef}
+                className="flex-grow border border-default-300 rounded-md p-2 text-sm focus:outline-none"
+                placeholder="Type your message"
+                value={message}
+                onChange={handleChange}
+                onInput={handleInput}
+                rows={1}
+              />
+              <Button
+                isIconOnly
+                variant="shadow"
+                color="secondary"
+                aria-label="Record voice message"
+                onClick={handleRecordAudio}
+              >
+                <FaMicrophone className={isRecording ? "text-red-500" : ""} />
+              </Button>
+              <Button
+                isIconOnly
+                variant="shadow"
+                color="primary"
+                aria-label="Send message"
+                onClick={handleClick}
+              >
+                <FaPaperPlane />
+              </Button>
+            </div>
           </CardFooter>
         </Card>
       )}
