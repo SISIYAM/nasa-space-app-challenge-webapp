@@ -182,6 +182,25 @@ export default function Home() {
     }
   }, [chatMessages]);
 
+  // Weather state
+  const [weatherData, setWeatherData] = useState<any>(null);
+
+  // Fetch weather data from the Weather API
+  useEffect(() => {
+    const fetchWeather = async () => {
+      try {
+        const response = await fetch(
+          "http://api.weatherapi.com/v1/current.json?key=51012aca93084f2b8c0220303243009&q=lalmonirhat&aqi=yes"
+        );
+        const data = await response.json();
+        setWeatherData(data);
+      } catch (error) {
+        console.error("Failed to fetch weather data:", error);
+      }
+    };
+    fetchWeather();
+  }, []);
+
   return (
     <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
       <div className="inline-block max-w-xl text-center justify-center">
@@ -311,6 +330,67 @@ export default function Home() {
             </div>
           </CardFooter>
         </Card>
+      )}
+      {/* Weather Data Section */}
+      {weatherData && (
+        <div
+          className="mt-6 p-14 bg-blue-100 rounded-md text-black"
+          style={{
+            width: "50%",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <h2 className="text-lg font-semibold">
+            Weather Data for {weatherData.location.name}:
+          </h2>
+          <p>
+            <strong>Region:</strong> {weatherData.location.region || "N/A"}
+          </p>
+          <p>
+            <strong>Country:</strong> {weatherData.location.country}
+          </p>
+          <p>
+            <strong>Latitude:</strong> {weatherData.location.lat}
+          </p>
+          <p>
+            <strong>Longitude:</strong> {weatherData.location.lon}
+          </p>
+          <p>
+            <strong>Time Zone:</strong> {weatherData.location.tz_id}
+          </p>
+          <p>
+            <strong>Local Time:</strong> {weatherData.location.localtime}
+          </p>
+          <p>
+            <strong>Temperature:</strong> {weatherData.current.temp_c}°C
+          </p>
+          <p>
+            <strong>Condition:</strong> {weatherData.current.condition.text}
+          </p>
+          <img
+            src={weatherData.current.condition.icon}
+            alt="Weather condition"
+            className="mt-2"
+          />
+          <p>
+            <strong>Wind Speed:</strong> {weatherData.current.wind_kph} km/h
+          </p>
+          <p>
+            <strong>Pressure:</strong> {weatherData.current.pressure_mb} mb
+          </p>
+          <p>
+            <strong>Humidity:</strong> {weatherData.current.humidity}%
+          </p>
+          <p>
+            <strong>Visibility:</strong> {weatherData.current.vis_km} km
+          </p>
+          <p>
+            <strong>Feels Like:</strong> {weatherData.current.feelslike_c}°C
+          </p>
+        </div>
       )}
     </section>
   );

@@ -16,6 +16,14 @@ export const siteConfig = {
       label: "Soil Health",
       href: "/soil-health",
     },
+    {
+      label: "Soil Moisture ",
+      href: "/soil-moisture ",
+    },
+    {
+      label: "Water Quality",
+      href: "water-quality",
+    },
   ],
   navMenuItems: [
     {
@@ -30,7 +38,14 @@ export const siteConfig = {
       label: "Soil Health",
       href: "/soil-health",
     },
-    
+    {
+      label: "Soil Moisture ",
+      href: "/soil-moisture ",
+    },
+    {
+      label: "Water Quality",
+      href: "water-quality",
+    },
   ],
   links: {
     github: "https://github.com/SISIYAM/siyam-custom-cdn.git",
