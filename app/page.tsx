@@ -226,14 +226,15 @@ export default function Home() {
         >
           Get Started
         </button>
-        <Link
-          isExternal
-          className={buttonStyles({ variant: "bordered", radius: "full" })}
-          href={siteConfig.links.github}
+        <button
+          className={buttonStyles({
+            color: "danger",
+            radius: "full",
+            variant: "shadow",
+          })}
         >
-          <GithubIcon size={20} />
-          GitHub
-        </Link>
+          Emergency Call
+        </button>
       </div>
 
       {isOpen && (
@@ -331,6 +332,20 @@ export default function Home() {
           </CardFooter>
         </Card>
       )}
+      <div
+        className=""
+        style={{ width: "70%", display: "flex", flexDirection: "column" }}
+      >
+        <img
+          className="my-3"
+          src="https://ypfbd.org/wp-content/uploads/2022/08/Sylhet.jpg"
+          alt=""
+        />
+        <img
+          src="https://floodlist.com/wp-content/uploads/2021/07/Flooding-in-Bliesheim-Germany-July-2021-Photo-Stadt-Erftstadt.jpg"
+          alt=""
+        />
+      </div>
       {/* Weather Data Section */}
       {weatherData && (
         <div

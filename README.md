@@ -1,53 +1,33 @@
-# Next.js & NextUI Template
+# NASA Space Apps Challenge Web Application
 
-This is a template for creating applications using Next.js 14 (app directory) and NextUI (v2).
+This repository contains the web application built for the NASA Space Apps Challenge.
 
-[Try it on CodeSandbox](https://githubbox.com/nextui-org/next-app-template)
+## Getting Started
 
-## Technologies Used
+Follow the instructions below to clone, install dependencies, and run the project on your local machine.
 
-- [Next.js 14](https://nextjs.org/docs/getting-started)
-- [NextUI v2](https://nextui.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Tailwind Variants](https://tailwind-variants.org)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Framer Motion](https://www.framer.com/motion/)
-- [next-themes](https://github.com/pacocoursey/next-themes)
+### Step 1: Clone the Repository
 
-## How to Use
-
-### Use the template with create-next-app
-
-To create a new project based on this template using `create-next-app`, run the following command:
+Use the following command to clone the repository from GitHub to your local machine:
 
 ```bash
-npx create-next-app -e https://github.com/nextui-org/next-app-template
+git clone https://github.com/SISIYAM/nasa-space-app-challenge-webapp.git
 ```
 
-### Install dependencies
+### Step 2: Navigate to the Project Directory
 
-You can use one of them `npm`, `yarn`, `pnpm`, `bun`, Example using `npm`:
+```bash
+cd nasa-space-app-challenge-webapp
+```
+
+### Step 3: Install Dependencies
 
 ```bash
 npm install
 ```
 
-### Run the development server
+### Step 4: Run the Development Server
 
 ```bash
 npm run dev
 ```
-
-### Setup pnpm (optional)
-
-If you are using `pnpm`, you need to add the following code to your `.npmrc` file:
-
-```bash
-public-hoist-pattern[]=*@nextui-org/*
-```
-
-After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
-
-## License
-
-Licensed under the [MIT license](https://github.com/nextui-org/next-app-template/blob/main/LICENSE).
