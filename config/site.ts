@@ -24,6 +24,10 @@ export const siteConfig = {
       label: "Water Quality",
       href: "water-quality",
     },
+    {
+      label: "Login",
+      href: "login",
+    },
   ],
   navMenuItems: [
     {
@@ -39,12 +43,16 @@ export const siteConfig = {
       href: "/soil-health",
     },
     {
-      label: "Soil Moisture ",
+      label: "Soil Moisture",
       href: "/soil-moisture ",
     },
     {
       label: "Water Quality",
       href: "water-quality",
+    },
+    {
+      label: "Login",
+      href: "login",
     },
   ],
   links: {

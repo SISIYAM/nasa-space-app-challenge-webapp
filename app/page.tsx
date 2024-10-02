@@ -21,6 +21,7 @@ import {
   Image,
 } from "@nextui-org/react";
 import NavCard from "@/components/NavCard";
+import ContactForm from "@/components/ContactForm";
 
 interface ChatMessage {
   sender: "bot" | "user";
@@ -271,7 +272,6 @@ export default function Home() {
           imageUrl="https://eng.unimelb.edu.au/__data/assets/image/0009/3472902/measure-water-content-compressed.jpg"
         />
       </div>
-
       {isOpen && (
         <Card className="max-w-[400px] fixed bottom-16 right-4 shadow-lg border border-purple-600">
           <CardHeader className="flex gap-3 justify-between items-center">
@@ -367,7 +367,6 @@ export default function Home() {
           </CardFooter>
         </Card>
       )}
-
       {/* Weather Data Section */}
       {weatherData && (
         <div
@@ -429,6 +428,8 @@ export default function Home() {
           </p>
         </div>
       )}
+
+      <ContactForm />
     </section>
   );
 }
