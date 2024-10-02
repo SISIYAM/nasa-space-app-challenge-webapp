@@ -5,10 +5,10 @@ export default function SoilMoisturiserPage() {
     <div className="w-4/5 mx-auto border rounded-md shadow-md p-6">
       <h1 className={title({ color: "violet" })}>Soil Moisturiser</h1>
       <img
-        style={{ transform: "scale(0.8)" }}
-        src="https://i0.wp.com/www.ediblebackyard.co.nz/wp-content/uploads/2020/03/20191206_143651.jpg?resize=1024%2C498&ssl=1"
         alt="Water Quality Monitoring"
         className="w-full h-auto rounded-md mt-2"
+        src="https://i0.wp.com/www.ediblebackyard.co.nz/wp-content/uploads/2020/03/20191206_143651.jpg?resize=1024%2C498&ssl=1"
+        style={{ transform: "scale(0.8)" }}
       />
       <div className="mt-6">
         <h2 className="text-xl font-semibold mt-4">
@@ -19,9 +19,9 @@ export default function SoilMoisturiserPage() {
         <div className="border border-gray-300 shadow-sm rounded-md p-4 mt-4">
           <h3 className="font-bold text-lg">Soil Testing</h3>
           <img
-            src="https://www.epicgardening.com/wp-content/uploads/2024/02/soil-test-benefits.jpeg"
             alt="Water Quality Monitoring"
             className="w-full h-auto rounded-md mt-2"
+            src="https://www.epicgardening.com/wp-content/uploads/2024/02/soil-test-benefits.jpeg"
           />
           <p className="mt-2 text-justify">
             Soil testing is essential to determine the nutrient status, pH
@@ -45,9 +45,9 @@ export default function SoilMoisturiserPage() {
         <div className="border border-gray-300 shadow-sm rounded-md p-4 mt-4">
           <h3 className="font-bold text-lg">Fertilization</h3>
           <img
-            src="https://soilhealthnexus.org/files/2018/07/figure-1-1.jpg"
             alt="Water Quality Monitoring"
             className="w-full h-auto rounded-md mt-2"
+            src="https://soilhealthnexus.org/files/2018/07/figure-1-1.jpg"
           />
           <p className="mt-2 text-justify">
             Fertilization is critical for replenishing nutrients in the soil.
@@ -70,9 +70,9 @@ export default function SoilMoisturiserPage() {
         <div className="border border-gray-300 shadow-sm rounded-md p-4 mt-4">
           <h3 className="font-bold text-lg">Conservation Practices</h3>
           <img
-            src="https://eos.com/wp-content/uploads/2020/11/conservation-vs-conventional-farming.jpg.webp"
             alt="Water Quality Monitoring"
             className="w-full h-auto rounded-md mt-2"
+            src="https://eos.com/wp-content/uploads/2020/11/conservation-vs-conventional-farming.jpg.webp"
           />
           <p className="mt-2 text-justify">
             Implementing conservation practices helps maintain and improve soil

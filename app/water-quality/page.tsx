@@ -13,10 +13,10 @@ export default function WaterQualityPage() {
         <div className="border border-gray-300 shadow-sm rounded-md p-4 mt-4">
           <h3 className="font-bold text-lg">Water Quality</h3>
           <img
-            style={{ transform: "scale(0.8)" }}
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi1ZEjRBWMM8EFEkumaM4lp3lwOYZJ3YrPdA&s"
             alt="Water Quality Testing"
             className="w-full h-auto rounded-md mt-2"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi1ZEjRBWMM8EFEkumaM4lp3lwOYZJ3YrPdA&s"
+            style={{ transform: "scale(0.8)" }}
           />
           <p className="mt-2 text-justify">
             Water quality refers to the chemical, physical, and biological
@@ -26,9 +26,9 @@ export default function WaterQualityPage() {
             supporting human health and environmental sustainability.
           </p>
           <img
-            src="https://cdnintech.com/media/chapter/82246/1512345123/media/F1.png"
             alt="Sources of Water Pollution"
             className="w-full h-auto rounded-md mt-2"
+            src="https://cdnintech.com/media/chapter/82246/1512345123/media/F1.png"
           />
           <p className="mt-2 text-justify">
             Importance of Water Quality: Clean water is vital for drinking,
@@ -56,9 +56,9 @@ export default function WaterQualityPage() {
             role in these efforts.
           </p>
           <img
-            src="https://media.licdn.com/dms/image/C5612AQFB0lyegZ50hw/article-cover_image-shrink_600_2000/0/1626771913697?e=2147483647&v=beta&t=iNW3LSvsaEdLqy86YxuRTO2GXKISypunM_sE7KrzOFc"
             alt="Water Quality Monitoring"
             className="w-full h-auto rounded-md mt-2"
+            src="https://media.licdn.com/dms/image/C5612AQFB0lyegZ50hw/article-cover_image-shrink_600_2000/0/1626771913697?e=2147483647&v=beta&t=iNW3LSvsaEdLqy86YxuRTO2GXKISypunM_sE7KrzOFc"
           />
           <p className="mt-2 text-justify">
             <strong>NASA’s Role:</strong> NASA's Earth observation satellites

@@ -20,6 +20,7 @@ import {
   Button,
   Image,
 } from "@nextui-org/react";
+import NavCard from "@/components/NavCard";
 
 interface ChatMessage {
   sender: "bot" | "user";
@@ -214,7 +215,6 @@ export default function Home() {
           Leverage Earth observation data for sustainable agriculture.
         </h2>
       </div>
-
       <div className="flex gap-3">
         <button
           className={buttonStyles({
@@ -235,6 +235,39 @@ export default function Home() {
         >
           Emergency Call
         </button>
+      </div>
+      {/* Add card section here */}
+      <div className="flex flex-wrap justify-center gap-4 mt-8">
+        <NavCard
+          title="Crops"
+          description="Concise insights on crops: ideal growing conditions, soil types, cultivation methods, planting, irrigation, pest management, and harvesting tips."
+          href="/crops"
+          imageUrl="https://st.depositphotos.com/1033604/2008/i/450/depositphotos_20087015-stock-photo-sunlit-young-corn-plants.jpg"
+        />
+        <NavCard
+          title="Water Management"
+          description="Water Management focuses on efficient irrigation techniques, conservation practices, and strategies to optimize water use for sustainable crop growth."
+          href="/water-management"
+          imageUrl="https://www.nitw.ac.in/uba/assets/img/water_mng.jpg"
+        />
+        <NavCard
+          title="Soil Health"
+          description=" Focuses on maintaining nutrient-rich soil through sustainable practices to enhance crop growth and resilience."
+          href="/soil-health"
+          imageUrl="https://cdn.prod.website-files.com/5a6640db45f3940001095596/5ffdf3756b2e194b0d443c4e_Soil-Health-1200x628.jpg"
+        />
+        <NavCard
+          title="Soil Moisture"
+          description="Monitors water levels in the soil to ensure optimal conditions for plant growth and prevent over or under-watering."
+          href="/soil-moisture"
+          imageUrl="https://149363400.v2.pressablecdn.com/wp-content/uploads/2024/05/Soil-Moisture-4-1.png"
+        />
+        <NavCard
+          title="Water Quality"
+          description="Ensures clean, uncontaminated water is used in irrigation to support healthy crops and prevent soil degradation."
+          href="/water-quality"
+          imageUrl="https://eng.unimelb.edu.au/__data/assets/image/0009/3472902/measure-water-content-compressed.jpg"
+        />
       </div>
 
       {isOpen && (
@@ -332,20 +365,7 @@ export default function Home() {
           </CardFooter>
         </Card>
       )}
-      <div
-        className=""
-        style={{ width: "70%", display: "flex", flexDirection: "column" }}
-      >
-        <img
-          className="my-3"
-          src="https://ypfbd.org/wp-content/uploads/2022/08/Sylhet.jpg"
-          alt=""
-        />
-        <img
-          src="https://floodlist.com/wp-content/uploads/2021/07/Flooding-in-Bliesheim-Germany-July-2021-Photo-Stadt-Erftstadt.jpg"
-          alt=""
-        />
-      </div>
+
       {/* Weather Data Section */}
       {weatherData && (
         <div
