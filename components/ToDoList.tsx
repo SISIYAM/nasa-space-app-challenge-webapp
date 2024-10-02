@@ -8,7 +8,7 @@ import {
   Divider,
   Button,
 } from "@nextui-org/react";
-import { AiOutlinePlus, AiOutlineDelete } from "react-icons/ai"; // Import icons
+import { AiOutlinePlus, AiOutlineDelete } from "react-icons/ai";
 
 export default function ToDoList() {
   const [todos, setTodos] = useState<string[]>([]);
@@ -16,7 +16,7 @@ export default function ToDoList() {
   const inputRef = useRef<HTMLTextAreaElement | null>(null);
   const bottomRef = useRef<HTMLDivElement | null>(null);
 
-  // Function to handle adding new todo
+  // method to handle adding new todo
   const handleAddTodo = () => {
     if (newTodo.trim() === "") return;
 
@@ -24,12 +24,12 @@ export default function ToDoList() {
     setNewTodo("");
   };
 
-  // Function to handle deleting a todo
+  // method to handle deleting a todo
   const handleDeleteTodo = (index: number) => {
     setTodos((prevTodos) => prevTodos.filter((_, i) => i !== index));
   };
 
-  // Scroll to the bottom when todos update
+  // scroll to the bottom when todos update
   useEffect(() => {
     if (bottomRef.current) {
       bottomRef.current.scrollIntoView({ behavior: "smooth" });

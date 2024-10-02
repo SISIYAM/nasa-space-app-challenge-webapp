@@ -14,7 +14,7 @@ export default function ProfilePage() {
   const addTodo = () => {
     if (newTodo) {
       setTodos((prevTodos) => [...prevTodos, newTodo]);
-      setNewTodo(""); // Clear input
+      setNewTodo("");
     }
   };
 
@@ -53,9 +53,9 @@ export default function ProfilePage() {
 
       {/* Todo List Button */}
       <button
-        onClick={() => setIsModalOpen(true)}
+        onClick={() => setIsModalOpen(!isModalOpen)}
         className="mt-6 bg-violet-600 text-white py-2 px-4 rounded-md hover:bg-violet-700 focus:outline-none"
-        style={{ fontSize: "1.2rem" }} // Increased font size
+        style={{ fontSize: "1.2rem" }}
       >
         Todo List
       </button>
