@@ -8,10 +8,24 @@ export default function CropsPage() {
         <h2 className="text-xl font-semibold mt-4">
           Crops: Information About Various Crops and Their Cultivation
         </h2>
-
+        <div
+          className=""
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            textAlign: "center",
+            margin: "20px",
+          }}
+        >
+          <img
+            src="https://imgs.search.brave.com/WPDX8b7EJGsFWsHSW0umzjyT3H_3jQNjFObQNNQ7dRk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS1waG90/by9yb3dzLWdyZWVu/LWNyb3BzLWZpZWxk/XzEwNjExNTAtMTI1/MjQ4LmpwZz9zaXpl/PTYyNiZleHQ9anBn"
+            alt=""
+          />
+        </div>
         {/* Crop Varieties Section */}
         <div className="border border-gray-300 shadow-sm rounded-md p-4 mt-4">
           <h3 className="font-bold text-lg">Crop Varieties</h3>
+
           <p className="mt-2 text-justify">
             Understand the different types of crops such as cereals (wheat,
             rice, maize), pulses (lentils, chickpeas), oilseeds (sunflower,

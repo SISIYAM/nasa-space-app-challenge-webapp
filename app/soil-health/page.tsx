@@ -8,7 +8,20 @@ export default function SoilHealthPage() {
         <h2 className="text-xl font-semibold mt-4">
           Soil Health: Understanding and Improving Soil Quality
         </h2>
-
+        <div
+          className=""
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            textAlign: "center",
+            margin: "20px",
+          }}
+        >
+          <img
+            src="https://growers.ag/wp-content/uploads/2021/03/SoilNutrients-1024x680.png"
+            alt=""
+          />
+        </div>
         {/* Soil Testing Section */}
         <div className="border border-gray-300 shadow-sm rounded-md p-4 mt-4">
           <h3 className="font-bold text-lg">Soil Testing</h3>

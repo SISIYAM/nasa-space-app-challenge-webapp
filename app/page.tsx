@@ -206,13 +206,13 @@ export default function Home() {
     <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
       <div className="inline-block max-w-xl text-center justify-center">
         <h1 className={title()}>Welcome to&nbsp;</h1>
-        <h1 className={title({ color: "violet" })}>Agri Bot&nbsp;</h1>
+        <h1 className={title({ color: "violet" })}>AgriRelief&nbsp;</h1>
         <br />
         <h1 className={title()}>
-          Empowering farmers with NASA's satellite data.
+          Empowering farmers with innovative agricultural solutions.
         </h1>
         <h2 className={subtitle({ class: "mt-4" })}>
-          Leverage Earth observation data for sustainable agriculture.
+          Harnessing technology for sustainable and efficient farming practices.
         </h2>
       </div>
       <div className="flex gap-3">
@@ -224,17 +224,19 @@ export default function Home() {
           })}
           onClick={() => setIsOpen(!isOpen)}
         >
-          Get Started
+          Chat with agri bot
         </button>
-        <button
-          className={buttonStyles({
-            color: "danger",
-            radius: "full",
-            variant: "shadow",
-          })}
-        >
-          Emergency Call
-        </button>
+        <Link href="tel:999">
+          <button
+            className={buttonStyles({
+              color: "danger",
+              radius: "full",
+              variant: "shadow",
+            })}
+          >
+            Emergency Call - 999
+          </button>
+        </Link>
       </div>
       {/* Add card section here */}
       <div className="flex flex-wrap justify-center gap-4 mt-8">

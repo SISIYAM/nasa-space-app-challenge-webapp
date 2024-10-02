@@ -8,7 +8,20 @@ export default function WaterManagementPage() {
         <h2 className="text-xl font-semibold mt-4">
           Water Management: Strategies for Efficient Use and Conservation
         </h2>
-
+        <div
+          className=""
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            textAlign: "center",
+            margin: "20px",
+          }}
+        >
+          <img
+            src="https://www.csrmandate.org/wp-content/uploads/2021/08/main-photo-e1627901807532.jpg"
+            alt=""
+          />
+        </div>
         {/* Efficient Irrigation Techniques Section */}
         <div className="border border-gray-300 shadow-sm rounded-md p-4 mt-4">
           <h3 className="font-bold text-lg">Efficient Irrigation Techniques</h3>
