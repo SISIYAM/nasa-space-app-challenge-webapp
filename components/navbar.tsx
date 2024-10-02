@@ -83,7 +83,7 @@ export const Navbar = () => {
           <Link isExternal aria-label="Github" href={siteConfig.links.github}>
             <GithubIcon className="text-default-500" />
           </Link>
-          <Link>
+          <Link href="/profile">
             <button
               style={{ transform: "scale(0.8)" }}
               className={buttonStyles({

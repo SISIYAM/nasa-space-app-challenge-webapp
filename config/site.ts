@@ -22,11 +22,11 @@ export const siteConfig = {
     },
     {
       label: "Water Quality",
-      href: "water-quality",
+      href: "/water-quality",
     },
     {
       label: "Login",
-      href: "login",
+      href: "/login",
     },
   ],
   navMenuItems: [
