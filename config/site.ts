@@ -43,7 +43,7 @@ export const siteConfig = {
       href: "/soil-health",
     },
     {
-      label: "Soil Moisture",
+      label: "Soil Moisture ",
       href: "/soil-moisture ",
     },
     {

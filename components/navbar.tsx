@@ -11,6 +11,7 @@ import { Kbd } from "@nextui-org/kbd";
 import { Link } from "@nextui-org/link";
 import { Input } from "@nextui-org/input";
 import { link as linkStyles } from "@nextui-org/theme";
+import { button as buttonStyles } from "@nextui-org/theme";
 import NextLink from "next/link";
 import clsx from "clsx";
 
@@ -81,6 +82,18 @@ export const Navbar = () => {
           </Link>
           <Link isExternal aria-label="Github" href={siteConfig.links.github}>
             <GithubIcon className="text-default-500" />
+          </Link>
+          <Link>
+            <button
+              style={{ transform: "scale(0.8)" }}
+              className={buttonStyles({
+                color: "primary",
+                radius: "full",
+                variant: "shadow",
+              })}
+            >
+              Profile
+            </button>
           </Link>
           <ThemeSwitch />
         </NavbarItem>

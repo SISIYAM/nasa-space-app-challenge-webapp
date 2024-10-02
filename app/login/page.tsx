@@ -15,7 +15,7 @@ export default function LoginPage() {
         {/* Form Fields */}
         <form className="mt-6">
           <div className="mb-4">
-            <label className="block font-bold mb-2" htmlFor="email">
+            <label className="block  font-bold mb-2" htmlFor="email">
               Email Address
             </label>
             <input
@@ -28,7 +28,7 @@ export default function LoginPage() {
           </div>
 
           <div className="mb-6">
-            <label className="block font-bold mb-2" htmlFor="password">
+            <label className="block  font-bold mb-2" htmlFor="password">
               Password
             </label>
             <input
