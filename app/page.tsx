@@ -5,6 +5,7 @@ import { button as buttonStyles } from "@nextui-org/theme";
 import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
 import { GithubIcon } from "@/components/icons";
+
 import {
   FaPhoneAlt,
   FaVideo,
@@ -22,6 +23,7 @@ import {
 } from "@nextui-org/react";
 import NavCard from "@/components/NavCard";
 import ContactForm from "@/components/ContactForm";
+import CardCarousel from "@/components/CardCarousel";
 
 interface ChatMessage {
   sender: "bot" | "user";
@@ -429,6 +431,7 @@ export default function Home() {
         </div>
       )}
 
+      <CardCarousel />
       <ContactForm />
     </section>
   );
