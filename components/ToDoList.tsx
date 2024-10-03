@@ -11,26 +11,26 @@ import {
 import { AiOutlinePlus, AiOutlineDelete } from "react-icons/ai";
 export default function ToDoList() {
   const [todos, setTodos] = useState<string[]>(() => {
-    // Load todos from local storage on initial render
+    // load todos from local storage on initial render
     const storedTodos = localStorage.getItem("todos");
     return storedTodos ? JSON.parse(storedTodos) : [];
   });
   const [newTodo, setNewTodo] = useState("");
   const bottomRef = useRef<HTMLDivElement | null>(null);
-  // Save todos to local storage whenever todos change
+  // save todos to local storage whenever todos change
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
     if (bottomRef.current) {
       bottomRef.current.scrollIntoView({ behavior: "smooth" });
     }
   }, [todos]);
-  // Method to handle adding new todo
+  // method to handle adding new todo
   const handleAddTodo = () => {
     if (newTodo.trim() === "") return;
     setTodos((prevTodos) => [...prevTodos, newTodo.trim()]);
     setNewTodo("");
   };
-  // Method to handle deleting a todo
+  // method to handle deleting a todo
   const handleDeleteTodo = (index: number) => {
     setTodos((prevTodos) => prevTodos.filter((_, i) => i !== index));
   };
