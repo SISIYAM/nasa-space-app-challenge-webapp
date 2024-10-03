@@ -36,7 +36,7 @@ export default function ProfilePage() {
       {/* User Information */}
       <div className="mt-6 flex flex-col items-center">
         <img
-          src="https://imgs.search.brave.com/a77ewf5mkBES0JGG9_O7ZXD54dG6hNKUNIIZ56lozjc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTQ3/NjE3MDk2OS9waG90/by9wb3J0cmFpdC1v/Zi15b3VuZy1tYW4t/cmVhZHktZm9yLWpv/Yi1idXNpbmVzcy1j/b25jZXB0LmpwZz9z/PTYxMng2MTImdz0w/Jms9MjAmYz13OFNs/S3YtNHU2eFl5VTA3/Q1hlQlJ2Zlc2RjBp/WXgtYTdIUjJDaE04/WmJVPQ"
+          src="https://imgs.search.brave.com/NBYeMgX-LhU9ZD1J9eoctd-TMJsQE_rA6Q9NWN2vWvc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/Y3JlYXRlLnZpc3Rh/LmNvbS9hcGkvbWVk/aWEvc21hbGwvMzAx/Mzk3NTIyL3N0b2Nr/LXBob3RvLWhhcHB5/LWZhcm1lci1ob2xk/aW5nLWJveC12ZWdl/dGFibGVzLWNvcm4t/ZmllbGQ"
           alt="User Image"
           style={{ width: "300px", height: "300px" }}
           className="rounded-full mb-4"
