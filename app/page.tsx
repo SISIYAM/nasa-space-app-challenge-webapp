@@ -42,8 +42,8 @@ const imagePaths = {
 
 // predefined questions and answers
 const qaMapping: Record<string, string> = {
-  "What is Agri Bot?":
-    "Agri Bot is a tool that helps farmers leverage NASA's satellite data for sustainable agriculture.",
+  "বন্যার পর কোন ফসল লাগাতে হবে?":
+    "বন্যার পরে, দ্রুত বর্ধনশীল, বন্যা-প্রতিরোধী ফসল যেমন ভুট্টা, মসুর, বা শাক সবজি রোপণ করা ভাল। আপনার মাটির বর্তমান অবস্থার উপর ভিত্তি করে, প্রাথমিকভাবে কম আর্দ্রতা প্রয়োজন এমন ফসল লাগানোর পরামর্শ দেওয়া হয়।",
   "How can I use Agri Bot?":
     "You can use Agri Bot to get insights on crop management, irrigation, and soil health.",
   "What data does Agri Bot use?":
@@ -159,7 +159,10 @@ export default function Home() {
           // bot response after receiving the audio
           setChatMessages((prevMessages) => [
             ...prevMessages,
-            { sender: "bot", text: "Bot: Received your audio!" },
+            {
+              sender: "bot",
+              text: "Bot: বন্যা মাটিকে সংকুচিত করতে পারে, যা শিকড়ের বৃদ্ধিকে কঠিন করে তোলে। পর্যাপ্ত পরিমাণে শুকিয়ে গেলে আপনি মাটি আলগা করতে একটি টিলার ব্যবহার করতে পারেন। NASA-এর তথ্য অনুসারে, চাষের জন্য আদর্শ মাটির আর্দ্রতা 40-60% এর মধ্যে।",
+            },
           ]);
         };
 
