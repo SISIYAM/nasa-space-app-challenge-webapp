@@ -44,12 +44,12 @@ const imagePaths = {
 const qaMapping: Record<string, string> = {
   "বন্যার পর কোন ফসল লাগাতে হবে?":
     "বন্যার পরে, দ্রুত বর্ধনশীল, বন্যা-প্রতিরোধী ফসল যেমন ভুট্টা, মসুর, বা শাক সবজি রোপণ করা ভাল। আপনার মাটির বর্তমান অবস্থার উপর ভিত্তি করে, প্রাথমিকভাবে কম আর্দ্রতা প্রয়োজন এমন ফসল লাগানোর পরামর্শ দেওয়া হয়।",
-  "How can I use Agri Bot?":
-    "You can use Agri Bot to get insights on crop management, irrigation, and soil health.",
-  "What data does Agri Bot use?":
-    "Agri Bot uses Earth observation data from NASA satellites.",
-  "Tell me about Siyam":
-    "This website was developed by Md Saymum Islam Siyam, who is a full-stack developer and the founder and CEO at SEI Innovations.",
+  "Is there a risk of another flood in the coming weeks?":
+    "Based on data from the Global Precipitation Measurement (GPM) satellite, there is a moderate chance of heavy rainfall in the coming two weeks. I recommend keeping an eye on local advisories and preparing your drainage system to manage excess water.",
+  "How can I improve the water quality in my field?":
+    "You can improve water quality by setting up filtration pits around your field to help filter sediments. Letting floodwater settle before using it can also help. According to NASA's latest data, waiting for 7-10 days might be beneficial to let most of the pollutants settle.",
+  "Is my soil too wet for replanting now?":
+    "Based on the NASA Soil Moisture Active Passive (SMAP) data, soil moisture in your region is currently at 38%, which indicates that it's still too wet for replanting. It's better to wait until moisture drops to around 25%, which is ideal for sowing new crops.",
   "give image 1": "image1",
   "give image 2": "image2",
   "give image 3": "image3",
