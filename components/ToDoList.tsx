@@ -9,33 +9,31 @@ import {
   Button,
 } from "@nextui-org/react";
 import { AiOutlinePlus, AiOutlineDelete } from "react-icons/ai";
-
 export default function ToDoList() {
-  const [todos, setTodos] = useState<string[]>([]);
+  const [todos, setTodos] = useState<string[]>(() => {
+    // Load todos from local storage on initial render
+    const storedTodos = localStorage.getItem("todos");
+    return storedTodos ? JSON.parse(storedTodos) : [];
+  });
   const [newTodo, setNewTodo] = useState("");
-  const inputRef = useRef<HTMLTextAreaElement | null>(null);
   const bottomRef = useRef<HTMLDivElement | null>(null);
-
-  // method to handle adding new todo
-  const handleAddTodo = () => {
-    if (newTodo.trim() === "") return;
-
-    setTodos((prevTodos) => [...prevTodos, newTodo.trim()]);
-    setNewTodo("");
-  };
-
-  // method to handle deleting a todo
-  const handleDeleteTodo = (index: number) => {
-    setTodos((prevTodos) => prevTodos.filter((_, i) => i !== index));
-  };
-
-  // scroll to the bottom when todos update
+  // Save todos to local storage whenever todos change
   useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
     if (bottomRef.current) {
       bottomRef.current.scrollIntoView({ behavior: "smooth" });
     }
   }, [todos]);
-
+  // Method to handle adding new todo
+  const handleAddTodo = () => {
+    if (newTodo.trim() === "") return;
+    setTodos((prevTodos) => [...prevTodos, newTodo.trim()]);
+    setNewTodo("");
+  };
+  // Method to handle deleting a todo
+  const handleDeleteTodo = (index: number) => {
+    setTodos((prevTodos) => prevTodos.filter((_, i) => i !== index));
+  };
   return (
     <Card
       className="fixed bottom-16 right-4 shadow-lg border border-purple-600"
