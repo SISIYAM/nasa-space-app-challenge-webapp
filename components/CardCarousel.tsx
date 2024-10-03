@@ -1,13 +1,37 @@
 import React, { useState, useEffect } from "react";
 import "@/components/styles.css";
-
+import { title, subtitle } from "@/components/primitives";
 const cardData = [
-  { id: 1, title: "Card 1", description: "This is the first card" },
-  { id: 2, title: "Card 2", description: "This is the second card" },
-  { id: 3, title: "Card 3", description: "This is the third card" },
-  { id: 4, title: "Card 4", description: "This is the fourth card" },
-  { id: 5, title: "Card 5", description: "This is the fifth card" },
-  { id: 6, title: "Card 6", description: "This is the sixth card" },
+  {
+    id: 1,
+    title: "বিনামূল্যে বীজ ও সার বিতরণ",
+    description: "পুনরায় চাষাবাদের জন্য বিনামূল্যে বীজ ও সার।",
+  },
+  {
+    id: 2,
+    title: "কৃষি প্রশিক্ষণ ও পরামর্শ সেবা",
+    description: "আধুনিক প্রযুক্তি ও পদ্ধতি সম্পর্কে প্রশিক্ষণ ও পরামর্শ।",
+  },
+  {
+    id: 3,
+    title: "আর্থিক সহায়তা",
+    description: "সহজ শর্তে ঋণ",
+  },
+  {
+    id: 4,
+    title: "কৃষি যন্ত্রপাতির ভাড়া",
+    description: "আধুনিক কৃষি যন্ত্রপাতির ভাড়া সুবিধা",
+  },
+  {
+    id: 5,
+    title: "যোগাযোগ",
+    description: "নিকটস্থ কৃষি অফিসে বিস্তারিত তথ্য নিন।",
+  },
+  {
+    id: 6,
+    title: "বীমা সুবিধা",
+    description: "দুর্যোগের বিরুদ্ধে বীমা সুরক্ষা।",
+  },
 ];
 
 const CardCarousel: React.FC = () => {
@@ -29,9 +53,15 @@ const CardCarousel: React.FC = () => {
   };
 
   return (
-    <div className="carousel-container">
+    <div className="carousel-container mb-14">
+      <h1 className={`${title({ color: "violet", size: "sm" })}`}>
+        প্রিয় কৃষক ভাই ও বোনেরা,
+      </h1>
+      <p>
+        বন্যায় ক্ষতিগ্রস্ত কৃষকদের জন্য সরকার নিচের সহায়তাসমূহ প্রদান করছে:
+      </p>
       <div
-        className="carousel"
+        className="carousel my-7"
         style={{ transform: `translateX(-${currentIndex * (100 / 3)}%)` }}
       >
         {cardData.map((card) => (
